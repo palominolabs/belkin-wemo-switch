@@ -5,22 +5,53 @@
     <artifactId>wemo</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>wemo</name>
-    <url>http://maven.apache.org</url>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <name>${project.artifactId}</name>
+    <description>Java library for Belkin WeMo Insight Switch</description>
+    <url>https://github.com/palominolabs/belkin-wemo-switch</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.com:palominolabs/belkin-wemo-switch.git</connection>
+        <developerConnection>scm:git:git@github.com:palominolabs/belkin-wemo-switch.git</developerConnection>
+        <url>git@github.com:palominolabs/belkin-wemo-switch.git</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>mwudka</id>
+        </developer>
+        <developer>
+            <id>marshallpierce</id>
+        </developer>
+    </developers>
 
     <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
-
         <repository>
             <id>maven-snapshots</id>
             <name>Maven Snapshots</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots><enabled>true</enabled></snapshots>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
-
     </repositories>
 
     <dependencies>
@@ -30,4 +61,50 @@
             <version>2.1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <show>private</show>
+                    <quiet>true</quiet>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
