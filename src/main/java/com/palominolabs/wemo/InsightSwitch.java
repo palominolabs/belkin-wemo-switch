@@ -10,7 +10,7 @@ public class InsightSwitch {
         this.device = device;
     }
 
-    public PowerUsage getPowerUsage() throws Exception {
+    public PowerUsage getPowerUsage() throws InsightSwitchOperationException {
         Action action = device.getAction("GetInsightParams");
         performAction(action);
 
