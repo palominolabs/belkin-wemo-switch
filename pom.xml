@@ -44,7 +44,6 @@
     </properties>
 
     <repositories>
-
         <repository>
             <id>maven-snapshots</id>
             <name>Maven Snapshots</name>
