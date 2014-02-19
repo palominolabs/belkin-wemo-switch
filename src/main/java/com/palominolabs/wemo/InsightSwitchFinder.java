@@ -64,6 +64,8 @@ public class InsightSwitchFinder implements AutoCloseable {
             }
         });
 
+        controlPoint.search();
+
         return countDownLatch.await(timeout, unit);
     }
 
